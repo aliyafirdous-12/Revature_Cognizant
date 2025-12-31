@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Assignment 1</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+        .fail {
+            color: blue;
+            font-weight: bold;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>All Students Names</h2>
+<ul id="allStudents"></ul>
+
+<h2>Students who Scored More Than 60 Marks</h2>
+<ul id="passedStudents"></ul>
+
+<h2>CSE Students</h2>
+<ul id="cseStudents"></ul>
+
+<script>
+    // Students array
+    let students = [
+        { id: 1, name: "Aliya", marks: 78, department: "CSE" },
+        { id: 2, name: "Divya", marks: 92, department: "ECE" },
+        { id: 3, name: "Athiya", marks: 45, department: "MECH" },
+        { id: 4, name: "Aakansha", marks: 66, department: "CSE" },
+        { id: 5, name: "Sreeja", marks: 88, department: "ECE" }
+    ];
+
+    // 1. Display all student names
+    let allList = document.getElementById("allStudents");
+    students.forEach(student => {
+        let li = document.createElement("li");
+        li.textContent = student.name;
+        allList.appendChild(li);
+    });
+
+    // 2. Students who scored more than 60
+    let passedList = document.getElementById("passedStudents");
+    students.forEach(student => {
+        if (student.marks > 60) {
+            let li = document.createElement("li");
+            li.textContent = student.name + " - " + student.marks;
+            passedList.appendChild(li);
+        }
+    });
+
+    // 7. Only CSE students
+    let cseList = document.getElementById("cseStudents");
+    students.forEach(student => {
+        if (student.department === "CSE") {
+            let li = document.createElement("li");
+            li.textContent = student.name;
+            cseList.appendChild(li);
+        }
+    });
+    </script>
+
+</body>
+</html>     
