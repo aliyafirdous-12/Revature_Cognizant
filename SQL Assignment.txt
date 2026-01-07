@@ -1,0 +1,138 @@
+SQL Assignment
+Display all employee records.
+ SELECT * FROM employee;
+Display only employee ID, name, and department. 
+SELECT emp_id, emp_name, department FROM employee;
+Display employee name and salary for all employees.
+SELECT emp_name, salary FROM employee;
+Display employees whose salary is greater than 40,000.
+SELECT * FROM employee
+WHERE salary > 40000;
+Display employees whose salary is less than or equal to 35,000.
+SELECT * FROM employee
+WHERE salary <= 35000;
+Display employees whose salary is exactly 45,000.
+SELECT * FROM employee
+WHERE salary = 45000;
+Display employees who joined after 01-Jan-2022.
+SELECT * FROM employee
+WHERE joining_date > DATE '2022-01-01';
+Display employees who joined before 01-Jan-2021.
+SELECT * FROM employee
+WHERE joining_date < DATE '2021-01-01';
+Display employees whose salary is between 35,000 and 50,000.
+SELECT * FROM employee
+WHERE salary BETWEEN 35000 AND 50000;
+Display employees whose salary is not between 30,000 and 45,000.
+SELECT * FROM employee
+WHERE salary NOT BETWEEN 30000 AND 45000;
+Display employees whose joining date is between 01-Jan-2021 and 31-Dec-2022.
+SELECT * FROM employee
+WHERE joining_date BETWEEN DATE '2021-01-01' AND DATE '2022-12-31';
+Display employees working in IT or HR departments.
+SELECT * FROM employee
+WHERE department IN ('IT','HR');
+Display employees working in Chennai, Bangalore, or Hyderabad.
+SELECT * FROM employee
+WHERE location IN ('Chennai','Bangalore','Hyderabad');
+Display employees whose salary is IN (32000, 38000, 40000).
+SELECT * FROM employee
+WHERE salary IN (32000,38000,40000);
+Display employees not working in Mumbai.
+SELECT * FROM employee
+WHERE location <> 'Mumbai';
+Display employees whose department is not in IT and HR.
+SELECT * FROM employee
+WHERE department NOT IN ('IT','HR');
+Display employees whose designation is not in Developer and Tester.
+SELECT * FROM employee
+WHERE designation NOT IN ('Developer','Tester');
+Display employees whose name starts with ‘A’.
+SELECT * FROM employee
+WHERE emp_name LIKE 'A%';
+Display employees whose salary is NULL.
+SELECT * FROM employee
+WHERE salary IS NULL;
+Display employees whose email is NULL.
+SELECT * FROM employee
+WHERE email IS NULL;
+Display employees whose salary is NOT NULL.
+SELECT * FROM employee
+WHERE salary IS NOT NULL;
+Display employees whose email is NOT NULL.
+SELECT * FROM employee
+WHERE email IS NOT NULL;
+Display employees whose name ends with ‘i’.
+SELECT * FROM employee
+WHERE emp_name LIKE '%i';
+Display employees whose name contains ‘vi’.
+SELECT * FROM employee
+WHERE emp_name LIKE '%vi%';
+Display employees whose email contains ‘@company.com’.
+SELECT * FROM employee
+WHERE email LIKE '%@company.com%';
+Display employees whose designation ends with ‘Engineer’.
+SELECT * FROM employee
+WHERE designation LIKE '%Engineer';
+Display all employees ordered by salary ascending.
+SELECT * FROM employee
+ORDER BY salary ASC;
+Display employees ordered by department ASC and salary DESC.
+SELECT * FROM employee
+ORDER BY department ASC, salary DESC;
+Display employees ordered by location ASC and employee name ASC.
+SELECT * FROM employee
+ORDER BY location ASC, emp_name ASC;
+Display employees working in IT department AND salary > 45,000.
+SELECT * FROM employee
+WHERE department = 'IT'
+AND salary > 45000;
+Display employees working in HR OR Sales department.
+SELECT * FROM employee
+WHERE department IN ('HR','Sales');
+Update salary to 50,000 for employees whose salary is NULL.
+UPDATE employee
+SET salary = 50000
+WHERE salary IS NULL;
+Increase salary by 5,000 for all IT employees.
+UPDATE employee
+SET salary = salary + 5000
+WHERE department = 'IT';
+Display employees having the same name more than once.
+SELECT emp_name
+FROM employee
+GROUP BY emp_name
+HAVING COUNT(*) > 1;
+Display employees having the same salary.
+SELECT salary
+FROM employee
+GROUP BY salary
+HAVING COUNT(*) > 1;
+Display employees working in the same department and same location.
+SELECT department, location
+FROM employee
+GROUP BY department, location
+HAVING COUNT(*) > 1;
+Update location to Hyderabad for employees working in HR.
+UPDATE employee
+SET location = 'Hyderabad'
+WHERE department = 'HR';
+Display employees NOT working in IT department.
+SELECT * FROM employee
+WHERE department <> 'IT';
+Display employees working in IT AND located in Chennai.
+SELECT * FROM employee
+WHERE department = 'IT'
+AND location = 'Chennai';
+Display employees ordered by salary DESC and joining date ASC.
+SELECT * FROM employee
+ORDER BY salary DESC, joining_date ASC;
+Display all employees ordered by salary descending.
+SELECT * FROM employee
+ORDER BY salary DESC;
+Display all employees ordered by joining date ascending.
+SELECT * FROM employee
+ORDER BY joining_date ASC;
+Display all employees ordered by employee name alphabetically.
+SELECT * FROM employee
+ORDER BY emp_name ASC;
